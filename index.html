@@ -139,7 +139,7 @@
       }
     }
 
-    /* Section À propos avec fond animé et dégradé */
+    /* Section À propos avec vidéo en arrière-plan */
     #apropos {
       position: relative;
       height: 100vh;
@@ -148,15 +148,15 @@
       align-items: center;
       text-align: center;
       overflow: hidden;
-      background: linear-gradient(to bottom, #000000, #555555);
     }
 
-    #apropos canvas {
+    #apropos video {
       position: absolute;
       top: 0;
       left: 0;
       width: 100%;
       height: 100%;
+      object-fit: cover;
       z-index: -1;
     }
 
@@ -253,9 +253,12 @@
     <div class="fighter"></div>
   </section>
 
-  <!-- Section À propos avec fond animé -->
+  <!-- Section À propos avec vidéo en arrière-plan -->
   <section id="apropos">
-    <canvas id="apropos-particles"></canvas>
+    <video autoplay muted loop>
+      <source src="199958-911694865_medium.mp4" type="video/mp4">
+      Votre navigateur ne supporte pas la vidéo.
+    </video>
     <div class="content">
       <h2>À propos de moi</h2>
       <p>Je suis Nasim Abou Khadija, une développeuse passionnée par la création de solutions web innovantes.</p>
@@ -298,40 +301,6 @@
   <footer>
     <p>© 2023 Nasim Abou Khadija. Tous droits réservés.</p>
   </footer>
-
-  <script>
-    // Animation des particules pour la section À propos
-    const aproposCanvas = document.getElementById('apropos-particles');
-    const aproposCtx = aproposCanvas.getContext('2d');
-    aproposCanvas.width = window.innerWidth;
-    aproposCanvas.height = window.innerHeight;
-    let aproposParticles = [];
-    for (let i = 0; i < 100; i++) {
-      aproposParticles.push({
-        x: Math.random() * aproposCanvas.width,
-        y: Math.random() * aproposCanvas.height,
-        size: Math.random() * 2 + 1,
-        speedX: Math.random() * 1.5 - 0.75,
-        speedY: Math.random() * 1.5 - 0.75
-      });
-    }
-
-    function animateAproposParticles() {
-      aproposCtx.clearRect(0, 0, aproposCanvas.width, aproposCanvas.height);
-      aproposCtx.fillStyle = 'rgba(255, 255, 255, 0.9)';
-      aproposParticles.forEach(p => {
-        p.x += p.speedX;
-        p.y += p.speedY;
-        if (p.x < 0 || p.x > aproposCanvas.width) p.speedX *= -1;
-        if (p.y < 0 || p.y > aproposCanvas.height) p.speedY *= -1;
-        aproposCtx.beginPath();
-        aproposCtx.arc(p.x, p.y, p.size, 0, Math.PI * 2);
-        aproposCtx.fill();
-      });
-      requestAnimationFrame(animateAproposParticles);
-    }
-    animateAproposParticles();
-  </script>
 </body>
 
 </html>
