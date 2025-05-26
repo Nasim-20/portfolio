@@ -53,7 +53,7 @@
     }
 
     header nav ul li a:hover {
-      background-color: white; /* Changed from #ff6347 to white */
+      background-color: white;
       color: #000;
       transform: scale(1.1);
     }
@@ -294,7 +294,67 @@
     #contact {
       padding: 100px 20px;
       text-align: center;
-      background-color: rgba(0, 0, 0, 0.8);
+      background-color: white; /* Changed to white */
+      color: black; /* Text color for readability */
+    }
+
+    #contact h2 {
+      font-size: 2.5rem;
+      margin-bottom: 30px;
+      color: black;
+    }
+
+    #contact form {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      max-width: 600px;
+      margin: 0 auto;
+      gap: 15px;
+    }
+
+    #contact input,
+    #contact textarea {
+      width: 100%;
+      padding: 12px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      font-size: 1rem;
+      background-color: #f9f9f9;
+      transition: border-color 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    #contact input:focus,
+    #contact textarea:focus {
+      border-color: #333;
+      box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+      outline: none;
+    }
+
+    #contact textarea {
+      height: 150px;
+      resize: vertical;
+    }
+
+    #contact button {
+      background-color: #333;
+      color: white;
+      border: none;
+      padding: 12px 30px;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 1.1rem;
+      font-weight: bold;
+      transition: background-color 0.3s ease;
+    }
+
+    #contact button:hover {
+      background-color: #555;
+    }
+
+    /* Hide Formspree anti-spam field */
+    #contact input[name="_gotcha"] {
+      display: none;
     }
 
     /* Footer */
@@ -397,10 +457,11 @@
   <!-- Section Contact -->
   <section id="contact">
     <h2>Contactez-moi</h2>
-    <form>
-      <input type="text" placeholder="Votre nom" required>
-      <input type="email" placeholder="Votre email" required>
-      <textarea placeholder="Votre message" required></textarea>
+    <form action="https://formspree.io/f/your-unique-id" method="POST">
+      <input type="text" name="name" placeholder="Votre nom" required>
+      <input type="email" name="email" placeholder="Votre email" required>
+      <textarea name="message" placeholder="Votre message" required></textarea>
+      <input type="hidden" name="_gotcha">
       <button type="submit">Envoyer</button>
     </form>
   </section>
