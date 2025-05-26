@@ -43,13 +43,13 @@
       color: #fff;
       text-decoration: none;
       font-weight: bold;
-      font-size: 1.2rem;
+      font-size: 16px;
       padding: 10px 20px;
       border: 2px solid white;
       border-radius: 25px;
       transition: all 0.3s ease;
       display: inline-block;
-      background-color: rgba(0, 0, 0, 0.5);
+      background-color: rgba(0, 255, 255, 0.2);
     }
 
     header nav ul li a:hover {
@@ -60,25 +60,25 @@
 
     header nav ul li:nth-child(1) {
       top: 20px;
-      left: 20px;
+      left: 10px;
     }
 
     header nav ul li:nth-child(2) {
       top: 20px;
-      right: 20px;
+      right: 10px;
     }
 
     header nav ul li:nth-child(3) {
       bottom: 20px;
-      left: 20px;
+      left: 10px;
     }
 
     header nav ul li:nth-child(4) {
       bottom: 20px;
-      right: 20px;
+      right: 10px;
     }
 
-    /* Section Hero avec vidéo en arrière-plan */
+    /* Section Hero avec vidéo */
     .hero {
       height: 100vh;
       position: relative;
@@ -86,7 +86,7 @@
     }
 
     .hero video {
-      position: absolute;
+      position: 100%;
       top: 0;
       left: 0;
       width: 100%;
@@ -105,13 +105,13 @@
     }
 
     .animated-title {
-      font-size: 4rem;
+      font-size: 64px;
       animation: fadeIn 2s ease-in-out;
       text-shadow: 0 0 10px rgba(255, 255, 255, 0.8);
     }
 
     .animated-subtitle {
-      font-size: 1.5rem;
+      font-size: 24px;
       animation: fadeIn 3s ease-in-out;
       text-shadow: 0 0 10px rgba(255, 255, 255, 0.8);
     }
@@ -139,7 +139,7 @@
       }
     }
 
-    /* Section À propos avec vidéo en arrière-plan */
+    /* Section À propos avec vidéo */
     #apropos {
       position: relative;
       height: 100vh;
@@ -168,7 +168,7 @@
       border-radius: 10px;
     }
 
-    /* Section Projets avec vidéo en arrière-plan */
+    /* Section Projets avec vidéo */
     #projets {
       position: relative;
       height: 100vh;
@@ -189,12 +189,105 @@
       z-index: -1;
     }
 
-    #projets .content {
-      position: relative;
+    /* Styles pour les cartes de projets */
+    .project-container {
+      display: flex;
+      justify-content: space-around;
+      flex-wrap: wrap;
+      gap: 20px;
       z-index: 1;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .project-card {
       background-color: rgba(0, 0, 0, 0.7);
-      padding: 20px;
       border-radius: 10px;
+      width: 300px;
+      padding: 20px;
+      transition: transform 0.3s ease;
+      cursor: pointer;
+    }
+
+    .project-card:hover {
+      transform: scale(1.05);
+    }
+
+    .project-card h3 {
+      font-size: 24px;
+      margin-bottom: 10px;
+    }
+
+    .project-card p {
+      font-size: 16px;
+      margin-bottom: 15px;
+    }
+
+    .project-card button {
+      background-color: #ff6347;
+      color: white; /* Explicitly set to white */
+      border: none;
+      padding: 10px 20px;
+      border-radius: 5px;
+      cursor: pointer;
+      font-weight: bold;
+      font-size: 16px;
+    }
+
+    .project-card button:hover {
+      background-color: #e5533d;
+    }
+
+    /* Styles pour le modal */
+    .modal {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.8);
+      z-index: 2000;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .modal-content {
+      background-color: #333;
+      border-radius: 10px;
+      padding: 30px;
+      max-width: 900px; /* Increased size */
+      width: 90%;
+      color: white;
+      position: relative;
+      text-align: center;
+    }
+
+    .modal-content h3 {
+      font-size: 32px; /* Larger font for larger modal */
+      margin-bottom: 20px;
+    }
+
+    .modal-content p {
+      font-size: 18px; /* Larger font */
+      line-height: 1.6;
+      margin-bottom: 15px;
+    }
+
+    .modal-content img {
+      max-width: 100%; /* Ensure images scale properly */
+      height: auto;
+      border-radius: 5px;
+      margin: 10px 0;
+    }
+
+    .close-button {
+      position: absolute;
+      top: 15px;
+      right: 20px;
+      font-size: 24px;
+      cursor: pointer;
+      color: white;
     }
 
     /* Section Contact */
@@ -240,7 +333,7 @@
     </nav>
   </header>
 
-  <!-- Section Hero avec vidéo en arrière-plan -->
+  <!-- Section Hero avec vidéo -->
   <section id="accueil" class="hero">
     <video autoplay muted loop>
       <source src="192357-892475199_small.mp4" type="video/mp4">
@@ -253,7 +346,7 @@
     <div class="fighter"></div>
   </section>
 
-  <!-- Section À propos avec vidéo en arrière-plan -->
+  <!-- Section À propos avec vidéo -->
   <section id="apropos">
     <video autoplay muted loop>
       <source src="199958-911694865_medium.mp4" type="video/mp4">
@@ -265,26 +358,41 @@
     </div>
   </section>
 
-  <!-- Section Projets avec vidéo en arrière-plan -->
+  <!-- Section Projets avec cartes -->
   <section id="projets">
     <video autoplay muted loop>
       <source src="https://videos.pexels.com/video-files/6281081/6281081-uhd_3840_2160_24fps.mp4" type="video/mp4">
       Votre navigateur ne supporte pas la vidéo.
     </video>
-    <div class="content">
-      <h2>Mes Projets</h2>
-      <div class="projet-grid">
-        <div class="projet">
-          <h3>Projet 1</h3>
-          <p>Description du projet 1.</p>
-        </div>
-        <div class="projet">
-          <h3>Projet 2</h3>
-          <p>Description du projet 2.</p>
-        </div>
+    <div class="project-container">
+      <div class="project-card" data-project="1">
+        <h3>Projet 1: Application Web</h3>
+        <p>Une application web interactive pour gérer des tâches.</p>
+        <button onclick="openModal(1)">Voir les détails</button>
+      </div>
+      <div class="project-card" data-project="2">
+        <h3>Projet 2: Portfolio Dynamique</h3>
+        <p>Un portfolio avec animations et vidéos en fond.</p>
+        <button onclick="openModal(2)">Voir les détails</button>
+      </div>
+      <div class="project-card" data-project="3">
+        <h3>Projet 3: API de Données</h3>
+        <p>Une API REST pour fournir des données en temps réel.</p>
+        <button onclick="openModal(3)">Voir les détails</button>
       </div>
     </div>
   </section>
+
+  <!-- Modal pour les détails des projets -->
+  <div class="modal" id="project-modal">
+    <div class="modal-content">
+      <span class="close-button" onclick="closeModal()">×</span>
+      <h3 id="modal-title"></h3>
+      <p id="modal-description"></p>
+      <p id="modal-details"></p>
+      <!-- Placeholder for images, to be added later -->
+    </div>
+  </div>
 
   <!-- Section Contact -->
   <section id="contact">
@@ -301,6 +409,54 @@
   <footer>
     <p>© 2023 Nasim Abou Khadija. Tous droits réservés.</p>
   </footer>
+
+  <script>
+    // Données des projets pour le modal
+    const projects = {
+      1: {
+        title: "Projet 1: Application Web",
+        description: "Une application web interactive pour gérer des tâches.",
+        details: "Cette application utilise HTML, CSS, et JavaScript avec un backend Node.js pour permettre aux utilisateurs de créer, modifier et supprimer des tâches. Intégration avec une base de données MongoDB."
+      },
+      2: {
+        title: "Projet 2: Portfolio Dynamique",
+        description: "Un portfolio avec animations et vidéos en fond.",
+        details: "Ce portfolio met en avant des animations fluides et des vidéos en arrière-plan pour une expérience utilisateur immersive. Construit avec HTML, CSS, et JavaScript."
+      },
+      3: {
+        title: "Projet 3: API de Données",
+        description: "Une API REST pour fournir des données en temps réel.",
+        details: "Une API RESTful développée avec Express.js, connectée à une base de données PostgreSQL, offrant des endpoints pour récupérer et manipuler des données en temps réel."
+      }
+    };
+
+    // Fonction pour ouvrir le modal
+    function openModal(projectId) {
+      const modal = document.getElementById('project-modal');
+      const modalTitle = document.getElementById('modal-title');
+      const modalDescription = document.getElementById('modal-description');
+      const modalDetails = document.getElementById('modal-details');
+
+      modalTitle.textContent = projects[projectId].title;
+      modalDescription.textContent = projects[projectId].description;
+      modalDetails.textContent = projects[projectId].details;
+
+      modal.style.display = 'flex';
+    }
+
+    // Fonction pour fermer le modal
+    function closeModal() {
+      const modal = document.getElementById('project-modal');
+      modal.style.display = 'none';
+    }
+
+    // Fermer le modal en cliquant à l'extérieur
+    document.getElementById('project-modal').addEventListener('click', function(event) {
+      if (event.target === this) {
+        closeModal();
+      }
+    });
+  </script>
 </body>
 
 </html>
