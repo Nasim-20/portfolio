@@ -26,7 +26,6 @@
       width: 100%;
       height: 100%;
       pointer-events: none;
-      /* Permet de cliquer à travers le header */
       z-index: 1000;
     }
 
@@ -38,7 +37,6 @@
     header nav ul li {
       position: absolute;
       pointer-events: auto;
-      /* Réactive les clics sur les liens */
     }
 
     header nav ul li a {
@@ -48,7 +46,6 @@
       font-size: 1.2rem;
       padding: 10px 20px;
       border: 2px solid white;
-      /* Contour blanc */
       border-radius: 25px;
       transition: all 0.3s ease;
       display: inline-block;
@@ -61,44 +58,41 @@
       transform: scale(1.1);
     }
 
-    /* Positionnement des onglets dans les coins */
     header nav ul li:nth-child(1) {
       top: 20px;
       left: 20px;
     }
 
-    /* Accueil */
     header nav ul li:nth-child(2) {
       top: 20px;
       right: 20px;
     }
 
-    /* À propos */
     header nav ul li:nth-child(3) {
       bottom: 20px;
       left: 20px;
     }
 
-    /* Projets */
     header nav ul li:nth-child(4) {
       bottom: 20px;
       right: 20px;
     }
 
-    /* Contact */
-    /* Section Hero avec fond animé */
+    /* Section Hero avec vidéo en arrière-plan */
     .hero {
       height: 100vh;
       position: relative;
       overflow: hidden;
+      background: black;
     }
 
-    canvas {
+    .hero video {
       position: absolute;
       top: 0;
       left: 0;
       width: 100%;
       height: 100%;
+      object-fit: cover;
       z-index: -1;
     }
 
@@ -146,7 +140,7 @@
       }
     }
 
-    /* Section À propos avec vidéo en arrière-plan */
+    /* Section À propos avec fond animé et dégradé */
     #apropos {
       position: relative;
       height: 100vh;
@@ -155,15 +149,15 @@
       align-items: center;
       text-align: center;
       overflow: hidden;
+      background: linear-gradient(to bottom, #000000, #555555);
     }
 
-    #apropos video {
+    #apropos canvas {
       position: absolute;
       top: 0;
       left: 0;
       width: 100%;
       height: 100%;
-      object-fit: cover;
       z-index: -1;
     }
 
@@ -247,23 +241,22 @@
     </nav>
   </header>
 
-  <!-- Section Hero avec fond animé -->
+  <!-- Section Hero avec vidéo en arrière-plan -->
   <section id="accueil" class="hero">
-    <canvas id="particles"></canvas>
+    <video autoplay muted loop>
+      <source src="192357-892475199_small.mp4" type="video/mp4">
+      Votre navigateur ne supporte pas la vidéo.
+    </video>
     <div class="hero-content">
       <h1 class="animated-title">Bienvenue sur mon Portfolio</h1>
       <p class="animated-subtitle">Découvrez mes projets et compétences</p>
-      <!-- Suppression du bouton "Voir mes projets" -->
     </div>
     <div class="fighter"></div>
   </section>
 
-  <!-- Section À propos avec vidéo en arrière-plan -->
+  <!-- Section À propos avec fond animé -->
   <section id="apropos">
-    <video autoplay muted loop>
-      <source src="https://videos.pexels.com/video-files/19843336/19843336-uhd_2160_3840_60fps.mp4" type="video/mp4">
-      Votre navigateur ne supporte pas la vidéo.
-    </video>
+    <canvas id="apropos-particles"></canvas>
     <div class="content">
       <h2>À propos de moi</h2>
       <p>Je suis Nasim Abou Khadija, une développeuse passionnée par la création de solutions web innovantes.</p>
@@ -304,41 +297,41 @@
 
   <!-- Footer -->
   <footer>
-    <p>&copy; 2023 Nasim Abou Khadija. Tous droits réservés.</p>
+    <p>© 2023 Nasim Abou Khadija. Tous droits réservés.</p>
   </footer>
 
   <script>
-    // Animation des particules
-    const canvas = document.getElementById('particles');
-    const ctx = canvas.getContext('2d');
-    canvas.width = window.innerWidth;
-    canvas.height = window.innerHeight;
-    let particles = [];
+    // Animation des particules pour la section À propos
+    const aproposCanvas = document.getElementById('apropos-particles');
+    const aproposCtx = aproposCanvas.getContext('2d');
+    aproposCanvas.width = window.innerWidth;
+    aproposCanvas.height = window.innerHeight;
+    let aproposParticles = [];
     for (let i = 0; i < 100; i++) {
-      particles.push({
-        x: Math.random() * canvas.width,
-        y: Math.random() * canvas.height,
-        size: Math.random() * 3 + 1,
-        speedX: Math.random() * 2 - 1,
-        speedY: Math.random() * 2 - 1
+      aproposParticles.push({
+        x: Math.random() * aproposCanvas.width,
+        y: Math.random() * aproposCanvas.height,
+        size: Math.random() * 2 + 1,
+        speedX: Math.random() * 1.5 - 0.75,
+        speedY: Math.random() * 1.5 - 0.75
       });
     }
 
-    function animateParticles() {
-      ctx.clearRect(0, 0, canvas.width, canvas.height);
-      ctx.fillStyle = 'rgba(255, 255, 255, 0.7)';
-      particles.forEach(p => {
+    function animateAproposParticles() {
+      aproposCtx.clearRect(0, 0, aproposCanvas.width, aproposCanvas.height);
+      aproposCtx.fillStyle = 'rgba(255, 255, 255, 0.9)';
+      aproposParticles.forEach(p => {
         p.x += p.speedX;
         p.y += p.speedY;
-        if (p.x < 0 || p.x > canvas.width) p.speedX *= -1;
-        if (p.y < 0 || p.y > canvas.height) p.speedY *= -1;
-        ctx.beginPath();
-        ctx.arc(p.x, p.y, p.size, 0, Math.PI * 2);
-        ctx.fill();
+        if (p.x < 0 || p.x > aproposCanvas.width) p.speedX *= -1;
+        if (p.y < 0 || p.y > aproposCanvas.height) p.speedY *= -1;
+        aproposCtx.beginPath();
+        aproposCtx.arc(p.x, p.y, p.size, 0, Math.PI * 2);
+        aproposCtx.fill();
       });
-      requestAnimationFrame(animateParticles);
+      requestAnimationFrame(animateAproposParticles);
     }
-    animateParticles();
+    animateAproposParticles();
   </script>
 </body>
 
