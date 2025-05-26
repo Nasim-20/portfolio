@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Nasim Abou Khadija - Portfolio</title>
+  <style>
+    /* Styles généraux */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      overflow-x: hidden;
+      background: black;
+      color: white;
+      font-family: Arial, sans-serif;
+    }
+
+    /* Positionnement des onglets dans les coins */
+    header {
+      position: fixed;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      /* Permet de cliquer à travers le header */
+      z-index: 1000;
+    }
+
+    header nav ul {
+      list-style: none;
+      padding: 0;
+    }
+
+    header nav ul li {
+      position: absolute;
+      pointer-events: auto;
+      /* Réactive les clics sur les liens */
+    }
+
+    header nav ul li a {
+      color: #fff;
+      text-decoration: none;
+      font-weight: bold;
+      font-size: 1.2rem;
+      padding: 10px 20px;
+      border: 2px solid white;
+      /* Contour blanc */
+      border-radius: 25px;
+      transition: all 0.3s ease;
+      display: inline-block;
+      background-color: rgba(0, 0, 0, 0.5);
+    }
+
+    header nav ul li a:hover {
+      background-color: #ff6347;
+      color: #000;
+      transform: scale(1.1);
+    }
+
+    /* Positionnement des onglets dans les coins */
+    header nav ul li:nth-child(1) {
+      top: 20px;
+      left: 20px;
+    }
+
+    /* Accueil */
+    header nav ul li:nth-child(2) {
+      top: 20px;
+      right: 20px;
+    }
+
+    /* À propos */
+    header nav ul li:nth-child(3) {
+      bottom: 20px;
+      left: 20px;
+    }
+
+    /* Projets */
+    header nav ul li:nth-child(4) {
+      bottom: 20px;
+      right: 20px;
+    }
+
+    /* Contact */
+    /* Section Hero avec fond animé */
+    .hero {
+      height: 100vh;
+      position: relative;
+      overflow: hidden;
+    }
+
+    canvas {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: -1;
+    }
+
+    .hero-content {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      text-align: center;
+      z-index: 1;
+    }
+
+    .animated-title {
+      font-size: 4rem;
+      animation: fadeIn 2s ease-in-out;
+      text-shadow: 0 0 10px rgba(255, 255, 255, 0.8);
+    }
+
+    .animated-subtitle {
+      font-size: 1.5rem;
+      animation: fadeIn 3s ease-in-out;
+      text-shadow: 0 0 10px rgba(255, 255, 255, 0.8);
+    }
+
+    /* Animation du combattant */
+    .fighter {
+      position: absolute;
+      bottom: 10%;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 150px;
+      height: 150px;
+      background: url('https://upload.wikimedia.org/wikipedia/commons/7/73/Karate_Kata.gif') no-repeat center/contain;
+      opacity: 0.8;
+      animation: moveFighter 4s infinite alternate ease-in-out;
+    }
+
+    @keyframes moveFighter {
+      from {
+        transform: translateX(-50%) translateY(0);
+      }
+
+      to {
+        transform: translateX(-50%) translateY(-20px);
+      }
+    }
+
+    /* Section À propos avec vidéo en arrière-plan */
+    #apropos {
+      position: relative;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      overflow: hidden;
+    }
+
+    #apropos video {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      z-index: -1;
+    }
+
+    #apropos .content {
+      position: relative;
+      z-index: 1;
+      background-color: rgba(0, 0, 0, 0.7);
+      padding: 20px;
+      border-radius: 10px;
+    }
+
+    /* Section Projets avec vidéo en arrière-plan */
+    #projets {
+      position: relative;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      overflow: hidden;
+    }
+
+    #projets video {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      z-index: -1;
+    }
+
+    #projets .content {
+      position: relative;
+      z-index: 1;
+      background-color: rgba(0, 0, 0, 0.7);
+      padding: 20px;
+      border-radius: 10px;
+    }
+
+    /* Section Contact */
+    #contact {
+      padding: 100px 20px;
+      text-align: center;
+      background-color: rgba(0, 0, 0, 0.8);
+    }
+
+    /* Footer */
+    footer {
+      background-color: #333;
+      color: #fff;
+      text-align: center;
+      padding: 10px 0;
+      position: relative;
+      bottom: 0;
+      width: 100%;
+    }
+
+    /* Animations */
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+      }
+
+      to {
+        opacity: 1;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <nav>
+      <ul>
+        <li><a href="#accueil">Accueil</a></li>
+        <li><a href="#apropos">À propos</a></li>
+        <li><a href="#projets">Projets</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- Section Hero avec fond animé -->
+  <section id="accueil" class="hero">
+    <canvas id="particles"></canvas>
+    <div class="hero-content">
+      <h1 class="animated-title">Bienvenue sur mon Portfolio</h1>
+      <p class="animated-subtitle">Découvrez mes projets et compétences</p>
+      <!-- Suppression du bouton "Voir mes projets" -->
+    </div>
+    <div class="fighter"></div>
+  </section>
+
+  <!-- Section À propos avec vidéo en arrière-plan -->
+  <section id="apropos">
+    <video autoplay muted loop>
+      <source src="https://videos.pexels.com/video-files/19843336/19843336-uhd_2160_3840_60fps.mp4" type="video/mp4">
+      Votre navigateur ne supporte pas la vidéo.
+    </video>
+    <div class="content">
+      <h2>À propos de moi</h2>
+      <p>Je suis Nasim Abou Khadija, une développeuse passionnée par la création de solutions web innovantes.</p>
+    </div>
+  </section>
+
+  <!-- Section Projets avec vidéo en arrière-plan -->
+  <section id="projets">
+    <video autoplay muted loop>
+      <source src="https://videos.pexels.com/video-files/6281081/6281081-uhd_3840_2160_24fps.mp4" type="video/mp4">
+      Votre navigateur ne supporte pas la vidéo.
+    </video>
+    <div class="content">
+      <h2>Mes Projets</h2>
+      <div class="projet-grid">
+        <div class="projet">
+          <h3>Projet 1</h3>
+          <p>Description du projet 1.</p>
+        </div>
+        <div class="projet">
+          <h3>Projet 2</h3>
+          <p>Description du projet 2.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Section Contact -->
+  <section id="contact">
+    <h2>Contactez-moi</h2>
+    <form>
+      <input type="text" placeholder="Votre nom" required>
+      <input type="email" placeholder="Votre email" required>
+      <textarea placeholder="Votre message" required></textarea>
+      <button type="submit">Envoyer</button>
+    </form>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <p>&copy; 2023 Nasim Abou Khadija. Tous droits réservés.</p>
+  </footer>
+
+  <script>
+    // Animation des particules
+    const canvas = document.getElementById('particles');
+    const ctx = canvas.getContext('2d');
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+    let particles = [];
+    for (let i = 0; i < 100; i++) {
+      particles.push({
+        x: Math.random() * canvas.width,
+        y: Math.random() * canvas.height,
+        size: Math.random() * 3 + 1,
+        speedX: Math.random() * 2 - 1,
+        speedY: Math.random() * 2 - 1
+      });
+    }
+
+    function animateParticles() {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      ctx.fillStyle = 'rgba(255, 255, 255, 0.7)';
+      particles.forEach(p => {
+        p.x += p.speedX;
+        p.y += p.speedY;
+        if (p.x < 0 || p.x > canvas.width) p.speedX *= -1;
+        if (p.y < 0 || p.y > canvas.height) p.speedY *= -1;
+        ctx.beginPath();
+        ctx.arc(p.x, p.y, p.size, 0, Math.PI * 2);
+        ctx.fill();
+      });
+      requestAnimationFrame(animateParticles);
+    }
+    animateParticles();
+  </script>
+</body>
+
+</html>
