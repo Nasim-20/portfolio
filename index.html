@@ -294,6 +294,7 @@
             color: white;
             position: relative;
             text-align: center;
+            overflow-y: auto; /* Allow scrolling if content overflows */
         }
 
         .modal-content h3 {
@@ -307,11 +308,19 @@
             margin-bottom: 15px;
         }
 
-        .modal-content img {
-            max-width: 100%;
+        .modal-images {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin: 10px 0;
+            flex-wrap: wrap; /* Wrap images on smaller screens */
+        }
+
+        .modal-images img {
+            max-width: 30%; /* Each image takes ~1/3 of modal width */
             height: auto;
             border-radius: 5px;
-            margin: 10px 0;
+            object-fit: cover;
         }
 
         .close-button {
@@ -487,7 +496,7 @@
             <h3 id="modal-title"></h3>
             <p id="modal-description"></p>
             <p id="modal-details"></p>
-            <!-- Placeholder for images, to be added later -->
+            <div id="modal-images" class="modal-images"></div>
         </div>
     </div>
 
@@ -514,7 +523,8 @@
             1: {
                 title: "Projet 1: Application Web",
                 description: "Une application web interactive pour gérer des tâches.",
-                details: "Cette application utilise HTML, CSS, et JavaScript avec un backend Node.js pour permettre aux utilisateurs de créer, modifier et supprimer des tâches. Intégration avec une base de données MongoDB."
+                details: "Cette application utilise HTML, CSS, et JavaScript avec un backend Node.js pour permettre aux utilisateurs de créer, modifier et supprimer des tâches. Intégration avec une base de données MongoDB.",
+                images: ["IMG_3355.jpg", "IMG_3379.jpg", "IMG_3419.jpg"]
             },
             2: {
                 title: "Projet 2: Portfolio Dynamique",
@@ -534,10 +544,23 @@
             const modalTitle = document.getElementById('modal-title');
             const modalDescription = document.getElementById('modal-description');
             const modalDetails = document.getElementById('modal-details');
+            const modalImages = document.getElementById('modal-images');
 
             modalTitle.textContent = projects[projectId].title;
             modalDescription.textContent = projects[projectId].description;
             modalDetails.textContent = projects[projectId].details;
+
+            // Clear existing images
+            modalImages.innerHTML = '';
+
+            // Add images if they exist for the project
+            if (projects[projectId].images && projects[projectId].images.length > 0) {
+                projects[projectId].images.forEach(src => {
+                    const img = document.createElement('img');
+                    img.src = src;
+                    modalImages.appendChild(img);
+                });
+            }
 
             modal.style.display = 'flex';
         }
