@@ -485,8 +485,7 @@
                 <button onclick="openModal(2)">Voir les détails</button>
             </div>
             <div class="project-card" data-project="3">
-                <h3>Projet 3: API de Données</h3>
-                <p>Une API REST pour fournir des données en temps réel.</p>
+                <h3>Travaux cartographiques</h3>
                 <button onclick="openModal(3)">Voir les détails</button>
             </div>
         </div>
@@ -528,26 +527,32 @@
                 details: "",
                 extraContent: `
                     <p>Pendant deux mois, j’ai eu l’opportunité de réaliser un stage à l’OCAC, une structure qui joue un rôle clé dans la vie culturelle de la ville de Cenon. Cette expérience m’a permis de participer à l’organisation et à la valorisation de plusieurs événements culturels locaux.</p>
-                    <p>J’ai notamment collaboré à la couverture médiatique du Mois de la Danse, en réalisant des reportages photo lors de spectacles et ateliers, comme celui visible sur la deuxième image. J’ai aussi assisté à l’enregistrement d’émissions à O2 Radio en participant à la régie, ce qui m’a permis de découvrir les coulisses de la communication locale. Enfin, j’ai participé à la mise en place d’une exposition artistique, de la logistique à la valorisation des œuvres, illustrée par la dernière photo.</p>
-                    <p>Ce stage m’a offert une immersion concrète dans l’univers de l’action culturelle sur un territoire, tout en me permettant de développer des compétences en organisation, en médiation et en communication.</p>
+                    <p>J’ai notamment collaboré à la couverture médiatique du Mois de la Danse, en réalisant des reportages photo lors de spectacles et ateliers, comme celui visible sur la deuxième image. J’ai aussi assisté à l’enregistrement d’émissions à O2 Radio en participant à la régie, ce qui m’a permis de découvrir le coulisses de la communication locale. Enfin, j’ai participé à la mise en place d’une exposition collective.</p>
+                    <p>Ce stage m’a offert une immersion concrète dans l’univers de l’action culturelle sur un territoire, tout en me permettant de la culture tout en compétences en organisation et communication.</p>
                 `,
-                images: ["IMG_3355.jpg", "IMG_3379.jpg", "IMG_3419.jpg"]
+                images: ["images/IMG_3355.png", "images/IMG_3379.png", "images/IMG_3419.png"]
             },
             2: {
                 title: "Festival des Solidarités 2024",
                 description: "",
                 details: "",
                 extraContent: `
-                    <p>Dans le cadre du Festival des Solidarités 2024 j’ai participé à plusieurs actions autour du thème de l’accès à la culture en milieu carcéral. Nous avons organisé un porteur de parole dans les rues de Poitiers pour inviter les passants à réfléchir et s’exprimer sur la place de la culture en prison.</p>
-                    <p>J’ai aussi coanimé un atelier dans une classe de STI2D au lycée Gustave Eiffel afin de sensibiliser les élèves à cette problématique et encourager le débat. Enfin j’ai contribué à l’organisation d’une table ronde à l’IUT avec trois intervenants engagés dans le champ social et culturel qui ont partagé leurs expériences et points de vue sur ce sujet.</p>
+                    <p>Dans le cadre du Festival des Solidarités 2024, j’ai participé à plusieurs actions autour du thème de l’accès à la culture en milieu urbain. Nous avons organisé un porteur de parole dans les rues de Poitiers pour inviter les passants à réfléchir et s’exprimer sur la place de la culture dans la société.</p>
+                    <p>J’ai également co-animé un atelier dans une classe de STI2D au lycée pour sensibiliser les élèves à cette problématique et encourager le débat. Enfin, j’ai contribué à l’organisation d’une table ronde à l’IUT avec trois intervenants engagés dans le champ social et culturel, qui ont partagé leurs expériences et points de vue sur le sujet.</p>
                     <p>Ces actions m’ont permis de mieux comprendre les enjeux liés à la justice sociale et à la culture tout en développant mes compétences en animation et en organisation.</p>
                 `,
-                images: ["E672BFA1-0468-4FFA-BCEA-808203498EB3.JPG", "F3B8D0AE-35D1-4ACE-A8AB-D5B4379CCAE8.JPG", "ciné debat.png"]
+                images: ["images/E672BFA1-0468-4FFA-BCEA-456789123456.png", "images/F3B8D0AE-35D1-4ACE-A8AB9-D5B4379-CCAE8.png", "images/ciné débat.png"]
             },
             3: {
-                title: "Projet 3: API de Données",
-                description: "Une API REST pour fournir des données en temps réel.",
-                details: "Une API RESTful développée avec Express.js, connectée à une base de données PostgreSQL, offrant des endpoints pour récupérer et manipuler des données en temps réel."
+                title: "Travaux cartographiques",
+                description: "",
+                details: "",
+                extraContent: `
+                    <p>Dans le cadre de mes premiers travaux en cartographie, j’ai réalisé une analyse de la commune de Cenon à l’aide du logiciel QGIS, en me concentrant sur la répartition de ses espaces verts.</p>
+                    <p>Le projet comportait une analyse à deux niveaux : d’abord à l’échelle communale pour identifier les parcs et zones végétalisées, puis à l’échelle des quartiers voisins pour comparer Cenon avec les communes limitrophes.</p>
+                    <p>Ce travail m’a permis de maîtriser les outils de base de QGIS tout en développant une première réflexion sur les inégalités d’accès à la nature dans l’espace urbain.</p>
+                `,
+                images: ["images/cartoo.jpg", "images/carto-v2.png"]
             }
         };
 
@@ -558,7 +563,7 @@
             const modalExtraContent = document.getElementById('modal-extra-content');
             const modalImages = document.getElementById('modal-images');
 
-            modalTitle.textContent = projects[projectId].title;
+            modalTitle.textContent = 'projects[projectId].title;
 
             // Clear and add extra content
             modalExtraContent.innerHTML = projects[projectId].extraContent || '';
@@ -584,7 +589,7 @@
             modal.style.display = 'none';
         }
 
-        // Fermer le modal en cliquant à l'extérieur
+        // Fermer sur le modal en cliquant à l’extérieur
         document.getElementById('project-modal').addEventListener('click', function(event) {
             if (event.target === this) {
                 closeModal();
