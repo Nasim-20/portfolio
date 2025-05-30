@@ -322,10 +322,10 @@
         }
 
         .modal-images img {
-            max-width: 30%; /* Each image takes ~1/3 of modal width */
+            width: 30%; /* Fixed width for consistent size */
             height: auto;
             border-radius: 5px;
-            object-fit: cover;
+            object-fit: contain; /* Show full image without cropping */
         }
 
         .close-button {
@@ -341,14 +341,14 @@
         #contact {
             padding: 100px 20px;
             text-align: center;
-            background-color: black;
-            color: white;
+            background-color: white; /* Changed to white */
+            color: black; /* Changed to black for readability */
         }
 
         #contact h2 {
             font-size: 2.5rem;
             margin-bottom: 30px;
-            color: white;
+            color: black; /* Changed to black */
         }
 
         #contact form {
