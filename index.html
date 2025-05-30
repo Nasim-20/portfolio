@@ -2,522 +2,559 @@
 <html lang="fr">
 
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Nasim Abou Khadija - Portfolio</title>
-  <style>
-    /* Styles généraux */
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nasim Abou Khadija - Portfolio</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        /* Styles généraux */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-    body {
-      overflow-x: hidden;
-      background: black;
-      color: white;
-      font-family: Arial, sans-serif;
-    }
+        body {
+            overflow-x: hidden;
+            background: black;
+            color: white;
+            font-family: Arial, sans-serif;
+        }
 
-    /* Positionnement des onglets dans les coins */
-    header {
-      position: fixed;
-      width: 100%;
-      height: 100%;
-      pointer-events: none;
-      z-index: 1000;
-    }
+        /* Positionnement des onglets dans les coins */
+        header {
+            position: fixed;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 1000;
+        }
 
-    header nav ul {
-      list-style: none;
-      padding: 0;
-    }
+        header nav ul {
+            list-style: none;
+            padding: 0;
+        }
 
-    header nav ul li {
-      position: absolute;
-      pointer-events: auto;
-    }
+        header nav ul li {
+            position: absolute;
+            pointer-events: auto;
+        }
 
-    header nav ul li a {
-      color: #fff;
-      text-decoration: none;
-      font-weight: bold;
-      font-size: 1.2rem;
-      padding: 10px 20px;
-      border: 2px solid white;
-      border-radius: 25px;
-      transition: all 0.3s ease;
-      display: inline-block;
-      background-color: rgba(0, 0, 0, 0.5);
-    }
+        header nav ul li a {
+            color: #fff;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 1.2rem;
+            padding: 10px 20px;
+            border: 2px solid white;
+            border-radius: 25px;
+            transition: all 0.3s ease;
+            display: inline-block;
+            background-color: rgba(0, 0, 0, 0.5);
+        }
 
-    header nav ul li a:hover {
-      background-color: white;
-      color: #000;
-      transform: scale(1.1);
-    }
+        header nav ul li a:hover {
+            background-color: white;
+            color: #000;
+            transform: scale(1.1);
+        }
 
-    header nav ul li:nth-child(1) {
-      top: 20px;
-      left: 20px;
-    }
+        header nav ul li:nth-child(1) {
+            top: 20px;
+            left: 20px;
+        }
 
-    header nav ul li:nth-child(2) {
-      top: 20px;
-      right: 20px;
-    }
+        header nav ul li:nth-child(2) {
+            top: 20px;
+            right: 20px;
+        }
 
-    header nav ul li:nth-child(3) {
-      bottom: 20px;
-      left: 20px;
-    }
+        header nav ul li:nth-child(3) {
+            bottom: 20px;
+            left: 20px;
+        }
 
-    header nav ul li:nth-child(4) {
-      bottom: 20px;
-      right: 20px;
-    }
+        header nav ul li:nth-child(4) {
+            bottom: 20px;
+            right: 20px;
+        }
 
-    /* Section Hero avec vidéo en arrière-plan */
-    .hero {
-      height: 100vh;
-      position: relative;
-      overflow: hidden;
-    }
+        /* Section Hero avec vidéo en arrière-plan */
+        .hero {
+            height: 100vh;
+            position: relative;
+            overflow: hidden;
+        }
 
-    .hero video {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      z-index: -1;
-    }
+        .hero video {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            z-index: -1;
+        }
 
-    .hero-content {
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      text-align: center;
-      z-index: 1;
-    }
+        .hero-content {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            text-align: center;
+            z-index: 1;
+        }
 
-    .animated-title {
-      font-size: 4rem;
-      animation: fadeIn 2s ease-in-out;
-      text-shadow: 0 0 10px rgba(255, 255, 255, 0.8);
-    }
+        .animated-title {
+            font-size: 4rem;
+            animation: fadeIn 2s ease-in-out;
+            text-shadow: 0 0 10px rgba(255, 255, 255, 0.8);
+        }
 
-    .animated-subtitle {
-      font-size: 1.5rem;
-      animation: fadeIn 3s ease-in-out;
-      text-shadow: 0 0 10px rgba(255, 255, 255, 0.8);
-    }
+        .animated-subtitle {
+            font-size: 1.5rem;
+            animation: fadeIn 3s ease-in-out;
+            text-shadow: 0 0 10px rgba(255, 255, 255, 0.8);
+        }
 
-    /* Animation du combattant */
-    .fighter {
-      position: absolute;
-      bottom: 10%;
-      left: 50%;
-      transform: translateX(-50%);
-      width: 150px;
-      height: 150px;
-      background: url('https://upload.wikimedia.org/wikipedia/commons/7/73/Karate_Kata.gif') no-repeat center/contain;
-      opacity: 0.8;
-      animation: moveFighter 4s infinite alternate ease-in-out;
-    }
+        /* Animation du combattant */
+        .fighter {
+            position: absolute;
+            bottom: 10%;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 150px;
+            height: 150px;
+            background: url('https://upload.wikimedia.org/wikipedia/commons/7/73/Karate_Kata.gif') no-repeat center/contain;
+            opacity: 0.8;
+            animation: moveFighter 4s infinite alternate ease-in-out;
+        }
 
-    @keyframes moveFighter {
-      from {
-        transform: translateX(-50%) translateY(0);
-      }
+        @keyframes moveFighter {
+            from {
+                transform: translateX(-50%) translateY(0);
+            }
 
-      to {
-        transform: translateX(-50%) translateY(-20px);
-      }
-    }
+            to {
+                transform: translateX(-50%) translateY(-20px);
+            }
+        }
 
-    /* Section À propos avec vidéo en arrière-plan */
-    #apropos {
-      position: relative;
-      height: 100vh;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      text-align: center;
-      overflow: hidden;
-    }
+        /* Section À propos avec vidéo en arrière-plan */
+        #apropos {
+            position: relative;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            overflow: hidden;
+        }
 
-    #apropos video {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      z-index: -1;
-    }
+        #apropos video {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            z-index: -1;
+        }
 
-    #apropos .content {
-      position: relative;
-      z-index: 1;
-      background-color: rgba(0, 0, 0, 0.7);
-      padding: 20px;
-      border-radius: 10px;
-    }
+        #apropos .content {
+            position: relative;
+            z-index: 1;
+            background-color: rgba(0, 0, 0, 0.7);
+            padding: 30px;
+            border-radius: 10px;
+            max-width: 800px;
+            height: 400px; /* Fixed height for scrolling area */
+            overflow: hidden; /* Clip scrolling text */
+            font-family: 'Roboto', sans-serif;
+        }
 
-    /* Section Projets avec vidéo en arrière-plan */
-    #projets {
-      position: relative;
-      height: 100vh;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      text-align: center;
-      overflow: hidden;
-    }
+        #apropos .scroll-text {
+            position: relative;
+            animation: scrollText 25s linear infinite; /* Slower scroll */
+            padding: 20px 0; /* Prevent cutoff */
+        }
 
-    #projets video {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      z-index: -1;
-    }
+        @keyframes scrollText {
+            0% {
+                transform: translateY(100%); /* Start at bottom */
+            }
+            100% {
+                transform: translateY(-100%); /* Move to top */
+            }
+        }
 
-    /* Styles pour les cartes de projets */
-    .project-container {
-      display: flex;
-      justify-content: space-around;
-      flex-wrap: wrap;
-      gap: 20px;
-      z-index: 1;
-      max-width: 1200px;
-      margin: 0 auto;
-    }
+        #apropos .content h2 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            font-weight: 700;
+        }
 
-    .project-card {
-      background-color: rgba(0, 0, 0, 0.7);
-      border-radius: 10px;
-      width: 300px;
-      padding: 20px;
-      transition: transform 0.3s ease;
-      cursor: pointer;
-    }
+        #apropos .content p {
+            font-size: 1.1rem;
+            line-height: 1.6;
+            margin-bottom: 15px;
+            font-weight: 400;
+        }
 
-    .project-card:hover {
-      transform: scale(1.05);
-    }
+        /* Section Projets avec vidéo en arrière-plan */
+        #projets {
+            position: relative;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            overflow: hidden;
+        }
 
-    .project-card h3 {
-      font-size: 1.5rem;
-      margin-bottom: 10px;
-    }
+        #projets video {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            z-index: -1;
+        }
 
-    .project-card p {
-      font-size: 1rem;
-      margin-bottom: 15px;
-    }
+        /* Styles pour les cartes de projets */
+        .project-container {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            gap: 20px;
+            z-index: 1;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
 
-    .project-card button {
-      background-color: white;
-      color: black;
-      border: none;
-      padding: 10px 20px;
-      border-radius: 5px;
-      cursor: pointer;
-      font-weight: bold;
-      font-size: 1rem;
-    }
+        .project-card {
+            background-color: rgba(0, 0, 0, 0.7);
+            border-radius: 10px;
+            width: 300px;
+            padding: 20px;
+            transition: transform 0.3s ease;
+            cursor: pointer;
+        }
 
-    .project-card button:hover {
-      background-color: #e0e0e0;
-    }
+        .project-card:hover {
+            transform: scale(1.05);
+        }
 
-    /* Styles pour le modal */
-    .modal {
-      display: none;
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background-color: rgba(0, 0, 0, 0.8);
-      z-index: 2000;
-      justify-content: center;
-      align-items: center;
-    }
+        .project-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 10px;
+        }
 
-    .modal-content {
-      background-color: #333;
-      border-radius: 10px;
-      padding: 40px;
-      max-width: 1200px;
-      width: 90%;
-      color: white;
-      position: relative;
-      text-align: center;
-    }
+        .project-card p {
+            font-size: 1rem;
+            margin-bottom: 15px;
+        }
 
-    .modal-content h3 {
-      font-size: 2rem;
-      margin-bottom: 20px;
-    }
+        .project-card button {
+            background-color: white;
+            color: black;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: bold;
+            font-size: 1rem;
+        }
 
-    .modal-content p {
-      font-size: 1.2rem;
-      line-height: 1.6;
-      margin-bottom: 15px;
-    }
+        .project-card button:hover {
+            background-color: #e0e0e0;
+        }
 
-    .modal-content img {
-      max-width: 100%;
-      height: auto;
-      border-radius: 5px;
-      margin: 10px 0;
-    }
+        /* Styles pour le modal */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.8);
+            z-index: 2000;
+            justify-content: center;
+            align-items: center;
+        }
 
-    .close-button {
-      position: absolute;
-      top: 15px;
-      right: 20px;
-      font-size: 1.5rem;
-      cursor: pointer;
-      color: white;
-    }
+        .modal-content {
+            background-color: #333;
+            border-radius: 10px;
+            padding: 40px;
+            max-width: 1200px;
+            width: 90%;
+            color: white;
+            position: relative;
+            text-align: center;
+        }
 
-    /* Section Contact */
-    #contact {
-      padding: 100px 20px;
-      text-align: center;
-      background-color: white;
-      color: black;
-    }
+        .modal-content h3 {
+            font-size: 2rem;
+            margin-bottom: 20px;
+        }
 
-    #contact h2 {
-      font-size: 2.5rem;
-      margin-bottom: 30px;
-      color: black;
-    }
+        .modal-content p {
+            font-size: 1.2rem;
+            line-height: 1.6;
+            margin-bottom: 15px;
+        }
 
-    #contact form {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      max-width: 600px;
-      margin: 0 auto;
-      gap: 15px;
-    }
+        .modal-content img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 5px;
+            margin: 10px 0;
+        }
 
-    #contact input,
-    #contact textarea {
-      width: 100%;
-      padding: 12px;
-      border: 1px solid #ccc;
-      border-radius: 5px;
-      font-size: 1rem;
-      background-color: #f9f9f9;
-      transition: border-color 0.3s ease, box-shadow 0.3s ease;
-    }
+        .close-button {
+            position: absolute;
+            top: 15px;
+            right: 20px;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: white;
+        }
 
-    #contact input:focus,
-    #contact textarea:focus {
-      border-color: #333;
-      box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
-      outline: none;
-    }
+        /* Section Contact */
+        #contact {
+            padding: 100px 20px;
+            text-align: center;
+            background-color: white;
+            color: black;
+        }
 
-    #contact textarea {
-      height: 150px;
-      resize: vertical;
-    }
+        #contact h2 {
+            font-size: 2.5rem;
+            margin-bottom: 30px;
+            color: black;
+        }
 
-    #contact button {
-      background-color: #333;
-      color: white;
-      border: none;
-      padding: 12px 30px;
-      border-radius: 5px;
-      cursor: pointer;
-      font-size: 1.1rem;
-      font-weight: bold;
-      transition: background-color 0.3s ease;
-    }
+        #contact form {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            max-width: 600px;
+            margin: 0 auto;
+            gap: 15px;
+        }
 
-    #contact button:hover {
-      background-color: #555;
-    }
+        #contact input,
+        #contact textarea {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 1rem;
+            background-color: #f9f9f9;
+            transition: border-color 0.3s ease, box-shadow 0.3s ease;
+        }
 
-    /* Hide Formspree anti-spam field */
-    #contact input[name="_gotcha"] {
-      display: none;
-    }
+        #contact input:focus,
+        #contact textarea:focus {
+            border-color: #333;
+            box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+            outline: none;
+        }
 
-    /* Footer */
-    footer {
-      background-color: #333;
-      color: #fff;
-      text-align: center;
-      padding: 10px 0;
-      position: relative;
-      bottom: 0;
-      width: 100%;
-    }
+        #contact textarea {
+            height: 150px;
+            resize: vertical;
+        }
 
-    /* Animations */
-    @keyframes fadeIn {
-      from {
-        opacity: 0;
-      }
+        #contact button {
+            background-color: #333;
+            color: white;
+            border: none;
+            padding: 12px 30px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1.1rem;
+            font-weight: bold;
+            transition: background-color 0.3s ease;
+        }
 
-      to {
-        opacity: 1;
-      }
-    }
-  </style>
+        #contact button:hover {
+            background-color: #555;
+        }
+
+        /* Hide Formspree anti-spam field */
+        #contact input[name="_gotcha"] {
+            display: none;
+        }
+
+        /* Footer */
+        footer {
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+            padding: 10px 0;
+            position: relative;
+            bottom: 0;
+            width: 100%;
+        }
+
+        /* Animations */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+
+            to {
+                opacity: 1;
+            }
+        }
+    </style>
 </head>
 
 <body>
-  <header>
-    <nav>
-      <ul>
-        <li><a href="#accueil">Accueil</a></li>
-        <li><a href="#apropos">À propos</a></li>
-        <li><a href="#projets">Projets</a></li>
-        <li><a href="#contact">Contact</a></li>
-      </ul>
-    </nav>
-  </header>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="#accueil">Accueil</a></li>
+                <li><a href="#apropos">À propos</a></li>
+                <li><a href="#projets">Projets</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
 
-  <!-- Section Hero avec vidéo en arrière-plan -->
-  <section id="accueil" class="hero">
-    <video autoplay muted loop>
-      <source src="13441-247710869_medium.mp4" type="video/mp4">
-      Votre navigateur ne supporte pas la vidéo.
-    </video>
-    <div class="hero-content">
-      <h1 class="animated-title">Bienvenue sur mon Portfolio</h1>
-      <p class="animated-subtitle">Découvrez mes projets et compétences</p>
+    <!-- Section Hero avec vidéo en arrière-plan -->
+    <section id="accueil" class="hero">
+        <video autoplay muted loop>
+            <source src="13441-247710869_medium.mp4" type="video/mp4">
+            Votre navigateur ne supporte pas la vidéo.
+        </video>
+        <div class="hero-content">
+            <h1 class="animated-title">Bienvenue sur mon Portfolio</h1>
+            <p class="animated-subtitle">Découvrez mes projets et compétences</p>
+        </div>
+        <div class="fighter"></div>
+    </section>
+
+    <!-- Section À propos avec vidéo en arrière-plan -->
+    <section id="apropos">
+        <video autoplay muted loop>
+            <source src="192357-892475199_small.mp4" type="video/mp4">
+            Votre navigateur ne supporte pas la vidéo.
+        </video>
+        <div class="content">
+            <div class="scroll-text">
+                <h2>À propos de moi</h2>
+                <p>Je m'appelle Nasim Abou-Khadija, j’ai 20 ans et je suis en deuxième année de BUT Villes et Territoires Durables. Ce que j’aime dans cette formation, c’est la diversité des sujets qu’on aborde : développement économique, aménagement urbain, action sociale, culture… Autant de domaines qui permettent de comprendre comment fonctionne un territoire et comment on peut agir concrètement pour l’améliorer.</p>
+                <p>Au départ, je m’intéressais surtout à la question du développement économique. Mais au fil du temps, j’ai découvert d’autres aspects tout aussi passionnants, comme le rôle de la culture ou encore l’importance du lien avec les habitants. Mon stage à l’Office Culturel et d’Animation de Cenon m’a justement permis de toucher à l’organisation d’événements, de travailler avec des acteurs locaux et de voir l’impact réel de ce type de projets.</p>
+                <p>Je suis quelqu’un de curieux, motivé et avec un vrai goût du travail bien fait. J’aime apprendre, relever des défis et surtout m’impliquer dans des projets concrets. Ce portfolio reflète mon parcours, mes centres d’intérêt, et l’envie que j’ai de continuer à évoluer dans des domaines où je peux être utile et engagé.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section Projets avec cartes -->
+    <section id="projets">
+        <video autoplay muted loop>
+            <source src="205617-927347876_medium.mp4" type="video/mp4">
+            Votre navigateur ne supporte pas la vidéo.
+        </video>
+        <div class="project-container">
+            <div class="project-card" data-project="1">
+                <h3>Projet 1: Application Web</h3>
+                <p>Une application web interactive pour gérer des tâches.</p>
+                <button onclick="openModal(1)">Voir les détails</button>
+            </div>
+            <div class="project-card" data-project="2">
+                <h3>Projet 2: Portfolio Dynamique</h3>
+                <p>Un portfolio avec animations et vidéos en fond.</p>
+                <button onclick="openModal(2)">Voir les détails</button>
+            </div>
+            <div class="project-card" data-project="3">
+                <h3>Projet 3: API de Données</h3>
+                <p>Une API REST pour fournir des données en temps réel.</p>
+                <button onclick="openModal(3)">Voir les détails</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Modal pour les détails des projets -->
+    <div class="modal" id="project-modal">
+        <div class="modal-content">
+            <span class="close-button" onclick="closeModal()">×</span>
+            <h3 id="modal-title"></h3>
+            <p id="modal-description"></p>
+            <p id="modal-details"></p>
+            <!-- Placeholder for images, to be added later -->
+        </div>
     </div>
-    <div class="fighter"></div>
-  </section>
 
-  <!-- Section À propos avec vidéo en arrière-plan -->
-  <section id="apropos">
-    <video autoplay muted loop>
-      <source src="192357-892475199_small.mp4" type="video/mp4">
-      Votre navigateur ne supporte pas la vidéo.
-    </video>
-    <div class="content">
-      <h2>À propos de moi</h2>
-      <p>Je suis Nasim Abou Khadija, une développeuse passionnée par la création de solutions web innovantes.</p>
-    </div>
-  </section>
+    <!-- Section Contact -->
+    <section id="contact">
+        <h2>Contactez-moi</h2>
+        <form action="https://formspree.io/f/your-unique-id" method="POST">
+            <input type="text" name="name" placeholder="Votre nom" required>
+            <input type="email" name="email" placeholder="Votre email" required>
+            <textarea name="message" placeholder="Votre message" required></textarea>
+            <input type="hidden" name="_gotcha">
+            <button type="submit">Envoyer</button>
+        </form>
+    </section>
 
-  <!-- Section Projets avec cartes -->
-  <section id="projets">
-    <video autoplay muted loop>
-      <source src="205617-927347876_medium.mp4" type="video/mp4">
-      Votre navigateur ne supporte pas la vidéo.
-    </video>
-    <div class="project-container">
-      <div class="project-card" data-project="1">
-        <h3>Projet 1: Application Web</h3>
-        <p>Une application web interactive pour gérer des tâches.</p>
-        <button onclick="openModal(1)">Voir les détails</button>
-      </div>
-      <div class="project-card" data-project="2">
-        <h3>Projet 2: Portfolio Dynamique</h3>
-        <p>Un portfolio avec animations et vidéos en fond.</p>
-        <button onclick="openModal(2)">Voir les détails</button>
-      </div>
-      <div class="project-card" data-project="3">
-        <h3>Projet 3: API de Données</h3>
-        <p>Une API REST pour fournir des données en temps réel.</p>
-        <button onclick="openModal(3)">Voir les détails</button>
-      </div>
-    </div>
-  </section>
+    <!-- Footer -->
+    <footer>
+        <p>© 2023 Nasim Abou Khadija. Tous droits réservés.</p>
+    </footer>
 
-  <!-- Modal pour les détails des projets -->
-  <div class="modal" id="project-modal">
-    <div class="modal-content">
-      <span class="close-button" onclick="closeModal()">×</span>
-      <h3 id="modal-title"></h3>
-      <p id="modal-description"></p>
-      <p id="modal-details"></p>
-      <!-- Placeholder for images, to be added later -->
-    </div>
-  </div>
+    <script>
+        // Données des projets pour le modal
+        const projects = {
+            1: {
+                title: "Projet 1: Application Web",
+                description: "Une application web interactive pour gérer des tâches.",
+                details: "Cette application utilise HTML, CSS, et JavaScript avec un backend Node.js pour permettre aux utilisateurs de créer, modifier et supprimer des tâches. Intégration avec une base de données MongoDB."
+            },
+            2: {
+                title: "Projet 2: Portfolio Dynamique",
+                description: "Un portfolio avec animations et vidéos en fond.",
+                details: "Ce portfolio met en avant des animations fluides et des vidéos en arrière-plan pour une expérience utilisateur immersive. Construit avec HTML, CSS, et JavaScript."
+            },
+            3: {
+                title: "Projet 3: API de Données",
+                description: "Une API REST pour fournir des données en temps réel.",
+                details: "Une API RESTful développée avec Express.js, connectée à une base de données PostgreSQL, offrant des endpoints pour récupérer et manipuler des données en temps réel."
+            }
+        };
 
-  <!-- Section Contact -->
-  <section id="contact">
-    <h2>Contactez-moi</h2>
-    <form action="https://formspree.io/f/your-unique-id" method="POST">
-      <input type="text" name="name" placeholder="Votre nom" required>
-      <input type="email" name="email" placeholder="Votre email" required>
-      <textarea name="message" placeholder="Votre message" required></textarea>
-      <input type="hidden" name="_gotcha">
-      <button type="submit">Envoyer</button>
-    </form>
-  </section>
+        // Fonction pour ouvrir le modal
+        function openModal(projectId) {
+            const modal = document.getElementById('project-modal');
+            const modalTitle = document.getElementById('modal-title');
+            const modalDescription = document.getElementById('modal-description');
+            const modalDetails = document.getElementById('modal-details');
 
-  <!-- Footer -->
-  <footer>
-    <p>© 2023 Nasim Abou Khadija. Tous droits réservés.</p>
-  </footer>
+            modalTitle.textContent = projects[projectId].title;
+            modalDescription.textContent = projects[projectId].description;
+            modalDetails.textContent = projects[projectId].details;
 
-  <script>
-    // Données des projets pour le modal
-    const projects = {
-      1: {
-        title: "Projet 1: Application Web",
-        description: "Une application web interactive pour gérer des tâches.",
-        details: "Cette application utilise HTML, CSS, et JavaScript avec un backend Node.js pour permettre aux utilisateurs de créer, modifier et supprimer des tâches. Intégration avec une base de données MongoDB."
-      },
-      2: {
-        title: "Projet 2: Portfolio Dynamique",
-        description: "Un portfolio avec animations et vidéos en fond.",
-        details: "Ce portfolio met en avant des animations fluides et des vidéos en arrière-plan pour une expérience utilisateur immersive. Construit avec HTML, CSS, et JavaScript."
-      },
-      3: {
-        title: "Projet 3: API de Données",
-        description: "Une API REST pour fournir des données en temps réel.",
-        details: "Une API RESTful développée avec Express.js, connectée à une base de données PostgreSQL, offrant des endpoints pour récupérer et manipuler des données en temps réel."
-      }
-    };
+            modal.style.display = 'flex';
+        }
 
-    // Fonction pour ouvrir le modal
-    function openModal(projectId) {
-      const modal = document.getElementById('project-modal');
-      const modalTitle = document.getElementById('modal-title');
-      const modalDescription = document.getElementById('modal-description');
-      const modalDetails = document.getElementById('modal-details');
+        // Fonction pour fermer le modal
+        function closeModal() {
+            const modal = document.getElementById('project-modal');
+            modal.style.display = 'none';
+        }
 
-      modalTitle.textContent = projects[projectId].title;
-      modalDescription.textContent = projects[projectId].description;
-      modalDetails.textContent = projects[projectId].details;
-
-      modal.style.display = 'flex';
-    }
-
-    // Fonction pour fermer le modal
-    function closeModal() {
-      const modal = document.getElementById('project-modal');
-      modal.style.display = 'none';
-    }
-
-    // Fermer le modal en cliquant à l'extérieur
-    document.getElementById('project-modal').addEventListener('click', function(event) {
-      if (event.target === this) {
-        closeModal();
-      }
-    });
-  </script>
+        // Fermer le modal en cliquant à l'extérieur
+        document.getElementById('project-modal').addEventListener('click', function(event) {
+            if (event.target === this) {
+                closeModal();
+            }
+        });
+    </script>
 </body>
 
 </html>
