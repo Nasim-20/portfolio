@@ -341,14 +341,14 @@
         #contact {
             padding: 100px 20px;
             text-align: center;
-            background-color: white;
-            color: black;
+            background-color: black;
+            color: white;
         }
 
         #contact h2 {
             font-size: 2.5rem;
             margin-bottom: 30px;
-            color: black;
+            color: white;
         }
 
         #contact form {
@@ -481,8 +481,7 @@
                 <button onclick="openModal(1)">Voir les détails</button>
             </div>
             <div class="project-card" data-project="2">
-                <h3>Projet 2: Portfolio Dynamique</h3>
-                <p>Un portfolio avec animations et vidéos en fond.</p>
+                <h3>Festival des Solidarités 2024</h3>
                 <button onclick="openModal(2)">Voir les détails</button>
             </div>
             <div class="project-card" data-project="3">
@@ -535,9 +534,15 @@
                 images: ["IMG_3355.jpg", "IMG_3379.jpg", "IMG_3419.jpg"]
             },
             2: {
-                title: "Projet 2: Portfolio Dynamique",
-                description: "Un portfolio avec animations et vidéos en fond.",
-                details: "Ce portfolio met en avant des animations fluides et des vidéos en arrière-plan pour une expérience utilisateur immersive. Construit avec HTML, CSS, et JavaScript."
+                title: "Festival des Solidarités 2024",
+                description: "",
+                details: "",
+                extraContent: `
+                    <p>Dans le cadre du Festival des Solidarités 2024 j’ai participé à plusieurs actions autour du thème de l’accès à la culture en milieu carcéral. Nous avons organisé un porteur de parole dans les rues de Poitiers pour inviter les passants à réfléchir et s’exprimer sur la place de la culture en prison.</p>
+                    <p>J’ai aussi coanimé un atelier dans une classe de STI2D au lycée Gustave Eiffel afin de sensibiliser les élèves à cette problématique et encourager le débat. Enfin j’ai contribué à l’organisation d’une table ronde à l’IUT avec trois intervenants engagés dans le champ social et culturel qui ont partagé leurs expériences et points de vue sur ce sujet.</p>
+                    <p>Ces actions m’ont permis de mieux comprendre les enjeux liés à la justice sociale et à la culture tout en développant mes compétences en animation et en organisation.</p>
+                `,
+                images: ["E672BFA1-0468-4FFA-BCEA-808203498EB3.JPG", "F3B8D0AE-35D1-4ACE-A8AB-D5B4379CCAE8.JPG", "ciné debat.png"]
             },
             3: {
                 title: "Projet 3: API de Données",
