@@ -302,12 +302,6 @@
             margin-bottom: 20px;
         }
 
-        .modal-content p {
-            font-size: 1.2rem;
-            line-height: 1.6;
-            margin-bottom: 15px;
-        }
-
         .modal-extra-content {
             font-family: 'Roboto', sans-serif;
             margin-bottom: 20px;
@@ -484,7 +478,6 @@
         <div class="project-container">
             <div class="project-card" data-project="1">
                 <h3>Mon stage à l’OCAC – Office Culturel et d’Animation de Cenon</h3>
-                <p>Une application web interactive pour gérer des tâches.</p>
                 <button onclick="openModal(1)">Voir les détails</button>
             </div>
             <div class="project-card" data-project="2">
@@ -505,8 +498,6 @@
         <div class="modal-content">
             <span class="close-button" onclick="closeModal()">×</span>
             <h3 id="modal-title"></h3>
-            <p id="modal-description"></p>
-            <p id="modal-details"></p>
             <div id="modal-extra-content" class="modal-extra-content"></div>
             <div id="modal-images" class="modal-images"></div>
         </div>
@@ -534,8 +525,8 @@
         const projects = {
             1: {
                 title: "Mon stage à l’OCAC – Office Culturel et d’Animation de Cenon",
-                description: "Une application web interactive pour gérer des tâches.",
-                details: "Cette application utilise HTML, CSS, et JavaScript avec un backend Node.js pour permettre aux utilisateurs de créer, modifier et supprimer des tâches. Intégration avec une base de données MongoDB.",
+                description: "",
+                details: "",
                 extraContent: `
                     <p>Pendant deux mois, j’ai eu l’opportunité de réaliser un stage à l’OCAC, une structure qui joue un rôle clé dans la vie culturelle de la ville de Cenon. Cette expérience m’a permis de participer à l’organisation et à la valorisation de plusieurs événements culturels locaux.</p>
                     <p>J’ai notamment collaboré à la couverture médiatique du Mois de la Danse, en réalisant des reportages photo lors de spectacles et ateliers, comme celui visible sur la deuxième image. J’ai aussi assisté à l’enregistrement d’émissions à O2 Radio en participant à la régie, ce qui m’a permis de découvrir les coulisses de la communication locale. Enfin, j’ai participé à la mise en place d’une exposition artistique, de la logistique à la valorisation des œuvres, illustrée par la dernière photo.</p>
@@ -559,14 +550,10 @@
         function openModal(projectId) {
             const modal = document.getElementById('project-modal');
             const modalTitle = document.getElementById('modal-title');
-            const modalDescription = document.getElementById('modal-description');
-            const modalDetails = document.getElementById('modal-details');
             const modalExtraContent = document.getElementById('modal-extra-content');
             const modalImages = document.getElementById('modal-images');
 
             modalTitle.textContent = projects[projectId].title;
-            modalDescription.textContent = projects[projectId].description;
-            modalDetails.textContent = projects[projectId].details;
 
             // Clear and add extra content
             modalExtraContent.innerHTML = projects[projectId].extraContent || '';
